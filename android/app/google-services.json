@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176088517890",
+    "project_id": "tengri-app",
+    "storage_bucket": "tengri-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176088517890:android:8bced881bb68c96791861b",
+        "android_client_info": {
+          "package_name": "com.mrblab.prime_lms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcbTsySsB-x5qlma8pkeFwbSP1ORVWBbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
