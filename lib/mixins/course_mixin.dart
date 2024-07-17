@@ -33,6 +33,7 @@ mixin CourseMixin {
       return 'not-checked-yet';
     } else if (data['is_checked'] == true && data['is_approved'] == true) {
       return 'approved';
+      
     } else if (data['is_checked'] == true && data['is_approved'] == false) {
       return 'not-approved';
     } else {

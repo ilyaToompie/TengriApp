@@ -65,6 +65,8 @@ dependencies:
   mime: ^1.0.5
 
 
+  lottie: any
+  html: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

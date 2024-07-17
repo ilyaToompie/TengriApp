@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/configs/app_assets.dart';
 import 'package:lms_app/iAP/iap_config.dart';
 import 'package:lms_app/iAP/iap_screen.dart';
-import 'package:lms_app/models/app_settings_model.dart';
-import 'package:lms_app/providers/app_settings_provider.dart';
+import 'package:lms_app/screens/check_homework/homework_course_screen.dart';
+import 'package:lms_app/screens/tabs/profile_tab/user_roles_widget.dart';
 import '../../../components/user_avatar.dart';
 import '../../../mixins/user_mixin.dart';
 import '../../../models/user_model.dart';
@@ -42,10 +42,18 @@ class UserInfo extends StatelessWidget with UserMixin {
             size: 20,
           ),
         ),
+        UserRolesWidget(user: user, ref: ref,),
+        if (user.role!.contains('author') || user.role!.contains('admin'))
+        ListTile(title: Text("homework_solutions_title".tr()), 
+        leading: const Icon(FeatherIcons.bookOpen),                 
+        trailing: const Icon(FeatherIcons.chevronRight),
+        onTap: () {
+          NextScreen.iOS(context, HomeworkCourseScreen(user: user,));
+        },
+),
         Consumer(
           builder: (context, ref, child) {
-            final settings = ref.watch(appSettingsProvider);
-            if (IAPConfig.iAPEnabled && settings?.license == LicenseType.extended) {
+            if (IAPConfig.iAPEnabled) {
               return InkWell(
                 child: user.subscription == null ? _noSubscriptionContainer(context) : _subscriptionContainer(context),
                 onTap: () => NextScreen.openBottomSheet(context, const IAPScreen(), isDismissable: false),

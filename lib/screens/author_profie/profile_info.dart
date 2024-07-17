@@ -30,7 +30,7 @@ class AuthorProfileInfo extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            user.name,
+            user.id,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
           ),
           const SizedBox(height: 8),

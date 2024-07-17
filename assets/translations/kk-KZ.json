@@ -138,6 +138,26 @@
     "user-disable-subtitle": "Техникалық қолдауға хабарласыңыз.",
     "unmark-complete": "Аяқталмады деп белгілеу",
     "back": "Артқа",
-    "confirmation": "Подтверждение",
-    "confirm-deletion-homework": "Вы уже отправили это \nдомашнее задание.\nХотите удалить и отправить заного?"
+    "confirmation": "Растау",
+    "confirm-deletion-homework": "Сіз үй жұмысын жіберіп қойдыңыз\n Үй жұмысы\n Жоюды және қайта жіберуді қалайсыз ба?",
+    "admin_pin": "Administrator",
+    "author_pin": "Author",
+    "student_pin": "Student",
+    "homework_solutions_title": "Homework solutions",
+    "check_homework_title": "Homework checking",
+    "select-your-course": "Select your course",
+    "no-homeworks-found": "No homeworks found.",
+    "solution": "Solution",
+    "rate-solution": "Rate solution",
+    "solution-link-": "Solution link: {}",
+    "approve-solution": "Approve solution?",
+    "homework-checking": "Homework checking"
+
+
+
+
+
+
+
+
 }

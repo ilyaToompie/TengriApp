@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mrblab.primelms</string>
+	<string>com.tengri.tengriAppEdu</string>
 	<key>PROJECT_ID</key>
 	<string>tengri-app</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:176088517890:ios:a9553ad4dd98c16891861b</string>
+	<string>1:176088517890:ios:9ebf8d6b4f52d11c91861b</string>
 </dict>
 </plist>

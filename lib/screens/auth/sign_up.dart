@@ -94,7 +94,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.close),
@@ -121,7 +121,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 'follow-simple-steps',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary),
               ).tr(),
-              SizedBox(height: 100,),
+              const SizedBox(height: 100,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

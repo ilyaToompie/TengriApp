@@ -25,9 +25,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for linux - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for linux - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,50 +46,32 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: "AIzaSyCGOV_u7_cUrjY02WfXUzUNijvqoe0oKp0",
+    authDomain: "tengrilmsapp.firebaseapp.com",
+    databaseURL: "https://tengrilmsapp-default-rtdb.firebaseio.com",
+    projectId: "tengrilmsapp",
+    storageBucket: "tengrilmsapp.appspot.com",
+    messagingSenderId: "1044827531726",
+    appId: "1:1044827531726:web:e0050a167454cdb62f639f",
+    measurementId: "G-HL59VJQQL7"
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCPLV8oLmpjA-HPuirJCLe8U2H4J04tJZU',
+    appId: '1:176088517890:ios:9ebf8d6b4f52d11c91861b',
+    messagingSenderId: '176088517890',
+    projectId: 'tengri-app',
+    storageBucket: 'tengri-app.appspot.com',
+    iosBundleId: 'com.tengri.tengriAppEdu',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCcbTsySsB-x5qlma8pkeFwbSP1ORVWBbE',
     appId: '1:176088517890:android:8bced881bb68c96791861b',
     messagingSenderId: '176088517890',
     projectId: 'tengri-app',
     storageBucket: 'tengri-app.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCPLV8oLmpjA-HPuirJCLe8U2H4J04tJZU',
-    appId: '1:176088517890:ios:a9553ad4dd98c16891861b',
-    messagingSenderId: '176088517890',
-    projectId: 'tengri-app',
-    storageBucket: 'tengri-app.appspot.com',
-    iosBundleId: 'com.mrblab.primelms',
-  );
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: "AIzaSyBDuLCSehApVZp2Bd4nS89BgCeX77ChPk4",
-    authDomain: "tengri-app.firebaseapp.com",
-    projectId: "tengri-app",
-    storageBucket: "tengri-app.appspot.com",
-    messagingSenderId: "176088517890",
-    appId: "1:176088517890:web:9d931d610bae6e2891861b",
-    measurementId: "G-ZMK3RDZ0Y7"
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCPLV8oLmpjA-HPuirJCLe8U2H4J04tJZU',
-    appId: '1:176088517890:ios:cf8e604ff023dae991861b',
-    messagingSenderId: '176088517890',
-    projectId: 'tengri-app',
-    storageBucket: 'tengri-app.appspot.com',
-    iosBundleId: 'com.mrblab.lmsApp',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBDuLCSehApVZp2Bd4nS89BgCeX77ChPk4',
-    appId: '1:176088517890:web:0e1d4ec8be47aca491861b',
-    messagingSenderId: '176088517890',
-    projectId: 'tengri-app',
-    authDomain: 'tengri-app.firebaseapp.com',
-    storageBucket: 'tengri-app.appspot.com',
-    measurementId: 'G-FBEQM6D9JC',
   );
 
 }

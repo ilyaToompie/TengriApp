@@ -33,7 +33,7 @@ class MarkCompleteButton extends ConsumerWidget with CourseMixin {
           onPressed: () async {
             final navigator = Navigator.of(context);
             if (!isCompleted){
-              await FirebaseService().updateLessonMarkComplete(user!, course, lesson);
+              await FirebaseService().updateLessonMarkComplete(user!, course, lesson.id);
               await ref.read(userDataProvider.notifier).getData();
             }
 

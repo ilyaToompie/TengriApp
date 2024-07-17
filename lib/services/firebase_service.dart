@@ -8,6 +8,7 @@ import 'package:lms_app/models/app_settings_model.dart';
 import 'package:lms_app/models/category.dart';
 import 'package:lms_app/models/chart_model.dart';
 import 'package:lms_app/models/course.dart';
+import 'package:lms_app/models/homework.dart';
 import 'package:lms_app/models/lesson.dart';
 import 'package:lms_app/models/purchase_history.dart';
 import 'package:lms_app/models/review.dart';
@@ -145,6 +146,29 @@ class FirebaseService {
     });
     return data;
   }
+  getUncheckedHomework({required String authorId}) async {
+  int uncheckedHomework = 0;
+
+  QuerySnapshot courseSnapshot = await firestore
+      .collection('courses')
+      .where('author.id', isEqualTo: authorId)
+      .where('status', isEqualTo: 'live')
+      .get();
+
+  for (QueryDocumentSnapshot courseDoc in courseSnapshot.docs) {
+    QuerySnapshot homeworkSnapshot = await firestore
+        .collection('courses')
+        .doc(courseDoc.id)
+        .collection('homework')
+        .where('is_checked', isEqualTo: false)
+        .get();
+
+    uncheckedHomework += homeworkSnapshot.docs.length;
+  }
+
+  return uncheckedHomework;
+}
+
 
   Future<List<Category>> getHomeCategories(int limit) async {
     List<Category> data = [];
@@ -307,34 +331,18 @@ class FirebaseService {
 }
 
 
-  Future updateLessonMarkComplete(UserModel user, Course course, Lesson lesson) async {
+  Future updateLessonMarkComplete(UserModel user, Course course, String lessonId) async {
     final DocumentReference ref = firestore.collection('users').doc(user.id);
 
     //course_id + lesson_id
-    final newlessonId = '${course.id}_${lesson.id}';
+    final newlessonId = '${course.id}_$lessonId';
     final List lessons = user.completedLessons ?? [];
-    if (lessons.contains(newlessonId)) {
-      await ref.update({
-        'completed_lessons': FieldValue.arrayRemove([newlessonId])
-      });
-    } else {
+    if (!lessons.contains(newlessonId)) {
       lessons.add(newlessonId);
       await ref.update({'completed_lessons': FieldValue.arrayUnion(lessons)});
     }
   }
-  Future uploadHomework(UserModel user, Course course, String description, String solutionLink, Lesson lesson) async {
-    await firestore.collection('courses').doc(course.id).collection('homeworks').add({
-      'lesson_id': lesson.id,
-      'text_solution': description.toString(),
-      'solution_link': solutionLink,
-      'is_checked': false,
-      'is_approved' : false,
-      'uid': user.id,
-      'uploaded_at': FieldValue.serverTimestamp(),
-
-    });
-  }
-
+  
   Future updateSubscription(UserModel user, Subscription subscription) async {
     final DocumentReference ref = firestore.collection('users').doc(user.id);
     final data = Subscription.getMap(subscription);
@@ -452,7 +460,7 @@ class FirebaseService {
       snapshot = await firestore.collection('courses').where('price_status', isEqualTo: 'free').where('status', isEqualTo: 'live').limit(10).get();
     } else {
       snapshot = await firestore
-          .collection('courses')
+          .collection('courses') 
           .where('price_status', isEqualTo: 'free')
           .where('status', isEqualTo: 'live')
           .startAfterDocument(lastDocument)
@@ -612,4 +620,71 @@ class FirebaseService {
     reviews.add(newCourseId);
     await ref.update({'reviews': FieldValue.arrayUnion(reviews)});
   }
+
+  Future<void> uploadHomework(
+  UserModel user, 
+  Course course, 
+  String textSolution, 
+  String solutionLink, 
+  Lesson lesson, 
+  String sectionId
+) async {
+  String documentId = '${user.id}_${lesson.id}';
+  
+  DocumentReference documentReference = firestore
+      .collection('courses')
+      .doc(course.id)
+      .collection('homeworks')
+      .doc(documentId);
+  
+  Map<String, dynamic> homeworkData = {
+    'lesson_id': lesson.id,
+    'section_id': sectionId,
+    'text_solution': textSolution,
+    'solution_link': solutionLink,
+    'rate': -1, // Default rate
+    'is_checked': false,
+    'is_approved': false,
+    'uid': user.id,
+    'uploaded_at': FieldValue.serverTimestamp(),
+  };
+
+  DocumentSnapshot documentSnapshot = await documentReference.get();
+  
+  if (documentSnapshot.exists) {
+    // Update the existing document
+    await documentReference.update(homeworkData);
+  } else {
+    // Create a new document
+    await documentReference.set(homeworkData);
+  }
+}
+
+
+  Future<String> fetchExerciseForChecking(HomeworkLesson homework, Course course) async {
+    final documentSnapshot = await FirebaseFirestore.instance
+        .collection('courses/${course.id}/section/$homework.sectionId/lessons/')
+        .doc(homework.lesson_id)
+        .get();
+
+    if (documentSnapshot.exists) {
+      return documentSnapshot.data()?['description'] ?? 'Задания нет!';
+    } else {
+      return 'Задания нет!';
+    }
+  }
+
+  
+    Future<UserModel?> getUserByUID(String userId) async {
+    UserModel? user;
+    try {
+      final DocumentSnapshot snap = await firestore.collection('users').doc(userId).get();
+      user = UserModel.fromFirebase(snap);
+    } catch (e) {
+      debugPrint('error on getting user data: $e');
+    }
+
+    return user;
+  }
+
 }

@@ -12,7 +12,12 @@
           "package_name": "com.mrblab.prime_lms"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "176088517890-vkbda2c9ibsitq3h4pa82d0csepfm2ag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCcbTsySsB-x5qlma8pkeFwbSP1ORVWBbE"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176088517890-vkbda2c9ibsitq3h4pa82d0csepfm2ag.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "176088517890-ak4ptj7u5umnq2suiip8jecfliacj6i7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mrblab.lmsApp"
+              }
+            }
+          ]
         }
       }
     }

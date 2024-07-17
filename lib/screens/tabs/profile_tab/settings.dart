@@ -35,6 +35,14 @@ class AppSettings extends ConsumerWidget with UserMixin {
             style: TextStyle(fontWeight: FontWeight.bold),
           ).tr(),
         ),
+
+
+
+
+
+        
+
+
         ListTile(
           leading: Icon(notificationEnbaled ? LineIcons.bell : LineIcons.bellSlash),
           title: const Text('notifications').tr(),

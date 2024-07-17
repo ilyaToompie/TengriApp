@@ -36,7 +36,7 @@ class OptionTile extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge
-                  ?.copyWith(color: isSelected ? Colors.white : Theme.of(context).colorScheme.onBackground, fontWeight: FontWeight.w500),
+                  ?.copyWith(color: isSelected ? Colors.white : Theme.of(context).colorScheme.onSurface, fontWeight: FontWeight.w500),
             ),
             tileColor: _tileColor(context, isSelected, isCorrectOption),
             value: optionIndex,

@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/components/html_body.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/lesson.dart';
+import 'package:lms_app/models/section.dart';
 import 'package:lms_app/providers/user_data_provider.dart';
 import 'package:lms_app/screens/homework_lesson/attach_widget.dart';
 import 'package:lms_app/services/firebase_service.dart';
@@ -12,9 +12,10 @@ import 'package:lms_app/utils/toasts.dart';
 import 'package:super_editor/super_editor.dart';
 
 class HomeworkLesson extends ConsumerStatefulWidget {
-  const HomeworkLesson({super.key, required this.lesson, required this.course});
+  const HomeworkLesson({super.key, required this.lesson, required this.sectionId, required this.course});
 
   final Course course;
+  final String sectionId;
   final Lesson lesson;
 
   @override
@@ -48,7 +49,7 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
     final user = ref.watch(userDataProvider);
 
     const String buttonText = 'Отправить решение';
-    final IconData icon = Icons.done;
+    const IconData icon = Icons.done;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.lesson.name),
@@ -61,8 +62,8 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
             style: TextButton.styleFrom(
               backgroundColor: Theme.of(context).primaryColor,
             ),
-            icon: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+            icon: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 6, horizontal: 6),
               child: Icon(
                 icon,
                 color: Colors.white,
@@ -70,9 +71,9 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
             ),
             label: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-              child: Text(
+              child: const Text(
                 buttonText,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
@@ -84,7 +85,7 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
               debugPrint(solutionLink);
               debugPrint(description);
               if (description != '' || solutionLink != ''){
-                await FirebaseService().uploadHomework(user!, widget.course, description, solutionLink, widget.lesson);
+                await FirebaseService().uploadHomework(user!, widget.course, description, solutionLink, widget.lesson, widget.sectionId);
                 Navigator.of(context).pop();
               }
               else{
@@ -166,7 +167,7 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
                 cursorColor: Theme.of(context).primaryColor,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.grey, width: 0.0),
+                  borderSide: BorderSide(color: Colors.grey, width: 0.0),
                 ),
                   hoverColor: Theme.of(context).primaryColor,
                   border: const OutlineInputBorder(),

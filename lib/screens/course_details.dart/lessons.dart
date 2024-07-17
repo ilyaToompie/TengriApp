@@ -70,7 +70,7 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
                           : Colors.grey,
                     ),
               ),
-              trailing: isAccessible ? _buildTrailingIcon(lesson, user) : Icon(Icons.lock, color: Colors.grey),
+              trailing: isAccessible ? _buildTrailingIcon(lesson, user) : const Icon(Icons.lock, color: Colors.grey),
             );
           },
         );
@@ -112,6 +112,7 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
     final status = await homeworkStatus(lesson, user, course);
     if (lesson.contentType == 'homework') {
       if (status == 'approved') {
+        FirebaseService().updateLessonMarkComplete(user, course, lesson.id);
         await showPlatformDialog(
           context: context,
           title: 'Информация',
@@ -129,10 +130,10 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
         );
 
         if (confirmResubmit == true) {
-          NextScreen.iOS(context, HomeworkLesson(lesson: lesson, course: course));
+          NextScreen.iOS(context, HomeworkLesson(lesson: lesson, sectionId: sectionId, course: course));
         }
       } else {
-        NextScreen.iOS(context, HomeworkLesson(lesson: lesson, course: course));
+        NextScreen.iOS(context, HomeworkLesson(lesson: lesson, sectionId: sectionId, course: course));
       }
     } else if (lesson.contentType == 'video' && lesson.videoUrl != null) {
       NextScreen.iOS(context, VideoLesson(course: course, lesson: lesson));
@@ -238,7 +239,7 @@ Future<bool?> showPlatformDialog({
           if (deleteText != null)
             CupertinoDialogAction(
               onPressed: () => Navigator.of(context).pop(true),
-              child: Text(deleteText, style: TextStyle(color: Colors.red)),
+              child: Text(deleteText, style: const TextStyle(color: Colors.red)),
             ),
         ],
       ),

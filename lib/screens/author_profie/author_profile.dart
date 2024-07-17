@@ -45,7 +45,7 @@ class AuthorProfile extends ConsumerWidget {
             pinned: true,
             floating: true,
             elevation: 0,
-            shape: RoundedRectangleBorder(),
+            shape: const RoundedRectangleBorder(),
           ),
           SliverToBoxAdapter(
             child: Column(

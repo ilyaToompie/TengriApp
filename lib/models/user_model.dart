@@ -64,11 +64,12 @@ class UserModel {
       'image_url': user.imageUrl,
       'created_at': user.createdAt,
       'platform': user.platform,
+      
     };
   }
 
   bool isLessonCompleted(String courseId, String lessonId) {
-    String lessonKey = '${courseId}_${lessonId}';
+    String lessonKey = '${courseId}_$lessonId';
     return completedLessons?.contains(lessonKey) ?? false;
     
   }
@@ -76,7 +77,7 @@ class UserModel {
 
 extension UserModelExtensions on UserModel {
   bool isLessonCompleted(String courseId, String lessonId) {
-    String lessonKey = '${courseId}_${lessonId}';
+    String lessonKey = '${courseId}_$lessonId';
     return completedLessons?.contains(lessonKey) ?? false;
   }
 

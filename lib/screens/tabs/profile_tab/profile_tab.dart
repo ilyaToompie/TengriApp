@@ -20,6 +20,7 @@ class ProfileTab extends ConsumerWidget {
           backgroundColor: Theme.of(context).primaryColor,
           titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600, fontSize: 20, color: Colors.white),
         ),
+        
         SliverToBoxAdapter(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
@@ -27,6 +28,7 @@ class ProfileTab extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 user == null ? const GuestUser() : UserInfo(user: user, ref: ref),
+                
                 const AppSettings(),
               ],
             ),

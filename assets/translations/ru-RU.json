@@ -93,6 +93,7 @@
     "homework": "Домашнее задание",
     "exercise": "Задание",
     "your-solution": "Ваше решение",
+    "solution": "Решение",
     "upload-by-link": "Загрузите решение, указав ссылку",
     "enter-link-here": "Введите ссылку сюда",
     "next": "Далее",
@@ -139,7 +140,19 @@
     "unmark-complete": "Отметить, как непройдено",
     "back": "Назад",
     "confirmation": "Подтверждение",
-    "confirm-deletion-homework": "Вы уже отправили это \nдомашнее задание.\nХотите удалить и отправить заного?"
-    
+    "confirm-deletion-homework": "Вы уже отправили это \nдомашнее задание.\nХотите удалить и отправить заного?",
+    "admin_pin": "Администратор",
+    "author_pin": "Автор",
+    "student_pin": "Студент",
+    "homework_solutions_title": "Решения домашних заданий",
+    "check_homework_title": "Проверка домашних заданий",
+    "select-your-course": "Выберите ваш курс",
+    "no-homeworks-found": "Домашние задания не найдены.",
+    "rate-solution": "Оцените решение",
+    "solution-link-": "Ссылка на решение: {}",
+    "approve-solution": "Одобрить решение?",
+    "no-exercise": "Нет задания!",
+    "homework-checking": "Проверка домашнего задания"
+
 
 }

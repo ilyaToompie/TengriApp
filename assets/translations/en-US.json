@@ -141,5 +141,25 @@
     "unmark-complete": "Unmark Complete",
     "back": "Back",
     "confirmation": "Confirmation",
-    "confirm-deletion-homework": "You've already uploaded solution.\nDo you want to delete and resend?"
+    "confirm-deletion-homework": "You've already uploaded solution.\nDo you want to delete and resend?",
+    "admin_pin": "Administrator",
+    "author_pin": "Author",
+    "student_pin": "Student",
+    "homework_solutions_title": "Homework solutions",
+    "check_homework_title": "Homework checking",
+    "select-your-course": "Select your course",
+    "no-homeworks-found": "No homeworks found.",
+    "solution": "Solution",
+    "rate-solution": "Rate solution",
+    "solution-link-": "Solution link: {}",
+    "approve-solution": "Approve solution?",
+    "no-exercise": "No exercise!",
+    "homework-checking": "Homework checking"
+
+
+
+
+
+
+
 }

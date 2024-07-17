@@ -1,21 +1,14 @@
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../models/course.dart';
-import '../../models/user_model.dart';
-import '../../services/firebase_service.dart';
-import '../../utils/loading_widget.dart';
-import '../../utils/next_screen.dart';
-import '../all_courses.dart/courses_view.dart';
-import '../all_courses.dart/grid_list_course_tile.dart';
+import 'package:lms_app/models/user_model.dart';
+import 'package:lms_app/screens/author_profie/author_courses.dart';
+import 'package:lms_app/screens/check_homework/grid_list_course_tile.dart';
+import 'package:lms_app/utils/loading_widget.dart';
 
-final authorCoursesProvider = FutureProvider.autoDispose.family<List<Course>, String>((ref, authorId) async {
-  final courses = await FirebaseService().getCoursesByAuthorId(authorId: authorId);
-  return courses;
-});
-
-class AuthorCourses extends ConsumerWidget {
-  const AuthorCourses({super.key, required this.user});
+class AuthorCoursesForChecking extends ConsumerWidget {
+  const AuthorCoursesForChecking({super.key, required this.user});
 
   final UserModel user;
 
@@ -31,7 +24,7 @@ class AuthorCourses extends ConsumerWidget {
                   .map(
                     (e) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: GridListCourseTile(course: e),
+                      child: GridListCourseTileAuthor(course: e),
                     ),
                   )
                   .toList(),
@@ -42,14 +35,9 @@ class AuthorCourses extends ConsumerWidget {
                 child: TextButton(
                   style: TextButton.styleFrom(backgroundColor: Theme.of(context).primaryColor,
 ),
+                  onPressed: () {  },
                   child: const Text('view-all', style: TextStyle(color: Colors.white),).tr(),
-                  onPressed: () => NextScreen.iOS(
-                      context,
-                      AllCoursesView(
-                        courseBy: CourseBy.author,
-                        title: user.name,
-                        authorId: user.id,
-                      )),
+                  
                 ),
               ),
             )

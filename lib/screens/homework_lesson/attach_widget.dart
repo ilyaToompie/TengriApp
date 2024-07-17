@@ -26,7 +26,7 @@ Widget build(BuildContext context) {
 			height: 20,
 			),
 			OutlinedButton(
-			style: ButtonStyle(
+			style: const ButtonStyle(
 
         
       ),

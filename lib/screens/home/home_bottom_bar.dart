@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/screens/home/home_view.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -23,7 +22,7 @@ class NavBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(navBarIndexProvider);
     return ClipRRect(
-      borderRadius: const BorderRadius.only(topLeft: const Radius.circular(32), topRight: Radius.circular(32)),
+      borderRadius: const BorderRadius.only(topLeft: Radius.circular(32), topRight: Radius.circular(32)),
       child: SalomonBottomBar(
         backgroundColor: Theme.of(context).primaryColor,
         curve: Curves.easeIn,
