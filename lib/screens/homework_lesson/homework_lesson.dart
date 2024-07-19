@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/components/html_body.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/lesson.dart';
-import 'package:lms_app/models/section.dart';
 import 'package:lms_app/providers/user_data_provider.dart';
 import 'package:lms_app/screens/homework_lesson/attach_widget.dart';
 import 'package:lms_app/services/firebase_service.dart';

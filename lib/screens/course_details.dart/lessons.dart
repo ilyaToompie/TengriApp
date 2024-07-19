@@ -6,7 +6,6 @@ import 'package:line_icons/line_icons.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:lms_app/ads/ad_manager.dart';
-import 'package:lms_app/constants/app_constants.dart';
 import 'package:lms_app/mixins/course_mixin.dart';
 import 'package:lms_app/mixins/user_mixin.dart';
 import 'package:lms_app/models/course.dart';
@@ -88,21 +87,21 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
 
   void _onTap(BuildContext context, Lesson lesson, Course course, UserModel? user, WidgetRef ref) {
     if (user != null) {
-      if (course.priceStatus == priceStatus.keys.first) {
+      //if (course.price == 0) {
         // Free
         if (hasEnrolled(user, course)) {
           _openLesson(context, lesson, user, ref);
         } else {
-          openSnackbar(context, 'Enroll to open lesson');
+          openSnackbar(context, 'enroll-to-open-lesson'.tr());
         }
-      } else {
+      /*} else {
         // Premium
         if (hasEnrolled(user, course) && !UserMixin.isExpired(user)) {
           _openLesson(context, lesson, user, ref);
         } else {
-          openSnackbar(context, 'Enroll to open lesson');
+          openSnackbar(context, 'enroll-to-open-lesson'.tr());
         }
-      }
+      }*/
     } else {
       NextScreen.openBottomSheet(context, const LoginScreen());
     }

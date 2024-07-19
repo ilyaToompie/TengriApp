@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lms_app/models/course.dart';
 
 import '../configs/app_assets.dart';
-import '../constants/app_constants.dart';
 
 class PremiumTag extends StatelessWidget {
   const PremiumTag({super.key, required this.course});
@@ -12,7 +11,9 @@ class PremiumTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: course.priceStatus == priceStatus.keys.elementAt(1),
+      visible: course.price == 0
+      ? false
+      : true,
       child: Align(
         alignment: Alignment.topRight,
         child: Container(

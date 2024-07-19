@@ -64,7 +64,7 @@ class _AllReviewsState extends ConsumerState<AllReviews> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('student-feedbacks').tr(),
+        title: const Text('student-feedbacks', style: TextStyle(color: Colors.white),).tr(),
         titleTextStyle: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         centerTitle: true,
         elevation: 0,

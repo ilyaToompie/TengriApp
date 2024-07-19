@@ -38,6 +38,23 @@ class CourseInfo extends StatelessWidget {
           const SizedBox(height: 10),
           Row(
             children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 4.0, right: 9),
+                child: Text("₸", style: TextStyle(fontSize: 20, color: Colors.blueGrey), ),
+              ),
+              Text('price'.tr(), style: Theme.of(context).textTheme.bodyLarge).tr(
+                args: [
+                  course.price == 0
+                  ? "free".tr()
+                  : "${course.price} KZT",
+
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 4,),
+          Row(
+            children: [
               const Icon(FeatherIcons.calendar, size: 20, color: Colors.blueGrey),
               const SizedBox(width: 5),
               Text('last-updated', style: Theme.of(context).textTheme.bodyLarge).tr(

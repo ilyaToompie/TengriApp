@@ -154,7 +154,26 @@
     "solution-link-": "Solution link: {}",
     "approve-solution": "Approve solution?",
     "no-exercise": "No exercise!",
-    "homework-checking": "Homework checking"
+    "homework-checking": "Homework checking",
+    "enroll-to-open-lesson": "Enroll to open lesson",
+    "rate-this-course": "Rate this course",
+    "price": "Price: {}",
+    "free": "Free",
+    "payment-with-kaspi": "Pay with Kaspi",
+    "buy-course-subititle": "To buy access for {}, enter link below and pay with Kaspi",
+    "click-to-go": "Click on link to pay",
+    "copy-link": "Copy link",
+    "copied-to-clipboard": "Link copied",
+    "upload-check-title": "Upload check",
+    "no-image-selected": "No image selected",
+    "select-check-image": "Select check image",
+    "send-check": "Upload check",
+    "selected-check-title": "Selected image",
+    "image-not-selected-title": "Image not selected!",
+    "image-not-selected-subtitle": "Please, select image before uploading",
+    "check-uploaded-title": "Check image is uploaded!",
+    "check-uploaded-subtitle": "We will check your payment soon\nThen you will have acess to the course."
+
 
 
 

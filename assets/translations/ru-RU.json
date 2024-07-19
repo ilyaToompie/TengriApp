@@ -152,7 +152,27 @@
     "solution-link-": "Ссылка на решение: {}",
     "approve-solution": "Одобрить решение?",
     "no-exercise": "Нет задания!",
-    "homework-checking": "Проверка домашнего задания"
+    "homework-checking": "Проверка домашнего задания",
+    "enroll-to-open-lesson": "Запишитесь, чтобы открыть урок",
+    "rate-this-course": "Оцените этот курс",
+    "price": "Цена: {}",
+    "free": "Бесплатно",
+    "payment-with-kaspi": "Оплата с Kaspi",
+    "buy-course-subititle": "Для покупки доступа к курсу {}, перейдите по ссылке и оплатите через Kaspi",
+    "click-to-go": "Нажмите на ссылку, чтобы оплатить",
+    "copy-link": "Скопировать ссылку",
+    "copied-to-clipboard": "Ссылка скопирована",
+    "upload-check-title": "Загрузите чек",
+    "no-image-selected": "Изображение не выбрано\n Загрузите изображение чека",
+    "select-check-image": "Выберите изображение чека",
+    "send-check": "Отправить чек",
+    "selected-check-title": "Выбранное изображение",
+    "image-not-selected-title": "Изображение не выбрано!",
+    "image-not-selected-subtitle": "Пожалуйста, выберите изображение перед отправкой",
+    "check-uploaded-title": "Чек отправлен на проверку",
+    "check-uploaded-subtitle": "Мы в скором времени проверим платёж\nИ откроем доступ к курсу."
+
+
 
 
 }

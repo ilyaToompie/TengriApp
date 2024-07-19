@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/ads/ad_manager.dart';
-import 'package:lms_app/iAP/iap_config.dart';
-import 'package:lms_app/models/app_settings_model.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/user_model.dart';
-import 'package:lms_app/providers/app_settings_provider.dart';
 import 'package:lms_app/screens/curricullam_screen.dart';
 import 'package:lms_app/screens/home/home_bottom_bar.dart';
 import 'package:lms_app/screens/home/home_view.dart';
 import 'package:lms_app/screens/intro.dart';
 import 'package:lms_app/screens/auth/login.dart';
+import 'package:lms_app/screens/payment/payment_screen.dart';
 import 'package:lms_app/services/auth_service.dart';
 import 'package:lms_app/services/firebase_service.dart';
 import 'package:lms_app/utils/next_screen.dart';
@@ -64,7 +62,7 @@ mixin UserMixin {
     required WidgetRef ref,
   }) async {
     if (user != null) {
-      if (course.priceStatus == 'free') {
+      if (course.price == 0) {
         // Free Course
         if (hasEnrolled(user, course)) {
           NextScreen.popup(context, CurriculamScreen(course: course));
@@ -81,13 +79,9 @@ mixin UserMixin {
             await _comfirmEnrollment(context, user, course, ref);
           }
         } else {
-          // Checking license before opening iAP
-          final settings = ref.read(appSettingsProvider);
-          if (IAPConfig.iAPEnabled && settings?.license == LicenseType.extended) {
-            NextScreen.openBottomSheet(context, const IAPScreen(), isDismissable: false);
-          } else {
-            openSnackbarFailure(context, 'Extended license required!');
-          }
+
+            NextScreen.openBottomSheet(context, BuyCourseScreen(course: course,), isDismissable: true);
+
         }
       }
     } else {
@@ -109,7 +103,7 @@ mixin UserMixin {
     required UserModel user,
     required Course course,
   }) async {
-    if (course.priceStatus == 'free') {
+    if (course.price == 0) {
       NextScreen.popup(context, CurriculamScreen(course: course));
     } else {
       if (!isExpired(user)) {

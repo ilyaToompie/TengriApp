@@ -3,7 +3,7 @@ import 'package:lms_app/models/author.dart';
 import 'package:lms_app/models/course_meta.dart';
 
 class Course {
-  final String name, id, thumbnailUrl, status, priceStatus;
+  final String name, id, thumbnailUrl, status, priceStatus, paymentLink;
   DateTime createdAt;
   DateTime? updatedAt;
   List? tagIDs;
@@ -15,11 +15,13 @@ class Course {
   final CourseMeta courseMeta;
   final int lessonsCount;
   bool? isFeatured;
+  final int price;
 
   Course({
     required this.name,
     required this.id,
     required this.thumbnailUrl,
+    required this.paymentLink,
     this.videoUrl,
     required this.createdAt,
     this.updatedAt,
@@ -29,6 +31,7 @@ class Course {
     required this.author,
     required this.studentsCount,
     required this.rating,
+    required this.price,
     required this.priceStatus,
     required this.courseMeta,
     required this.lessonsCount,
@@ -40,6 +43,7 @@ class Course {
     return Course(
       id: snap.id,
       name: d['name'],
+      paymentLink: d['paymentLink'],
       thumbnailUrl: d['image_url'],
       createdAt: (d['created_at'] as Timestamp).toDate(),
       updatedAt: d['updated_at'] == null ? null : (d['updated_at'] as Timestamp).toDate(),
@@ -48,6 +52,7 @@ class Course {
       categoryId: d['cat_id'],
       status: d['status'],
       author: Author.fromMap(d['author']),
+      price: d['price'],
       priceStatus: d['price_status'],
       rating: d['rating'].toDouble(),
       studentsCount: d['students'],

@@ -10,6 +10,7 @@ import 'package:lms_app/models/chart_model.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/homework.dart';
 import 'package:lms_app/models/lesson.dart';
+import 'package:lms_app/models/payment.dart';
 import 'package:lms_app/models/purchase_history.dart';
 import 'package:lms_app/models/review.dart';
 import 'package:lms_app/models/section.dart';
@@ -659,6 +660,20 @@ class FirebaseService {
     await documentReference.set(homeworkData);
   }
 }
+
+  Future<void> createPaymentDocument(String imageUrl, Course course) async {
+    Payment payment = Payment(
+      courseTitle: course.name,
+      courseId: course.id,
+      coursePrice: course.price,
+      checkImageUri: imageUrl,
+      authorId: course.author.id,
+    );
+
+    await FirebaseFirestore.instance
+        .collection('unchecked_payments')
+        .add(payment.toMap());
+  }
 
 
   Future<String> fetchExerciseForChecking(HomeworkLesson homework, Course course) async {

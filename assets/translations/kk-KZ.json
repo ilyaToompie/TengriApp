@@ -151,7 +151,35 @@
     "rate-solution": "Rate solution",
     "solution-link-": "Solution link: {}",
     "approve-solution": "Approve solution?",
-    "homework-checking": "Homework checking"
+    "homework-checking": "Homework checking",
+    "enroll-to-open-lesson": "Enroll to open lesson",
+    "rate-this-course": "Rate this course",
+    "price": "Price: {}",
+    "free": "Free",
+    "payment-with-kaspi": "Оплата с Kaspi",
+    "buy-course-subititle": "Для покупки доступа к курсу {}, перейдите по ссылке и оплатите через Kaspi",
+    "click-to-go": "Click on link to pay",
+    "copy-link": "Скопировать ссылку",
+    "copied-to-clipboard": "Link copied",
+    "upload-check-title": "Upload check",
+    "no-image-selected": "No image selected",
+    "select-check-image": "Выберите изображение чека",
+    "send-check": "Отправить чек",
+    "selected-check-title": "Выбранное изображение",
+    "image-not-selected-title": "Изображение не выбрано!",
+    "image-not-selected-subtitle": "Please, select image before uploading",
+    "check-uploaded-title": "Чек отправлен на проверку",
+    "check-uploaded-subtitle": "Мы в скором времени проверим платёж\nИ откроем доступ к курсу."
+
+
+
+
+
+
+
+
+
+
 
 
 

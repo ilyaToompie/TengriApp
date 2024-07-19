@@ -8,7 +8,7 @@ class AppSettingsModel {
   final HomeCategory? homeCategory1, homeCategory2, homeCategory3;
   final AppSettingsSocialInfo? social;
   final AdsModel? ads;
-  final LicenseType? license;
+  late final LicenseType? license;
 
   AppSettingsModel({
     required this.freeCourses,

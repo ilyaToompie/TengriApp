@@ -21,7 +21,7 @@ class ReviewButton extends ConsumerWidget with UserMixin {
   Widget build(BuildContext context, WidgetRef ref) {
     final UserModel? user = ref.watch(userDataProvider);
     return IconButton(
-      tooltip: 'Rate this course',
+      tooltip: 'rate-this-course'.tr(),
       onPressed: () async {
         final UserModel? user = ref.read(userDataProvider);
         if (user == null) {
