@@ -33,7 +33,6 @@ class HomeLatestCourses extends ConsumerWidget {
                       Expanded(
                         child: RichText(
                             text: TextSpan(
-                                text: 'explore'.tr(),
                                 style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                                 children: [
                               const TextSpan(text: ' '),

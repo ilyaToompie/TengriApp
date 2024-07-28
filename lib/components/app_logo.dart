@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lms_app/configs/app_assets.dart';
 
 class AppLogo extends StatelessWidget {
@@ -6,10 +7,10 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
+    return SvgPicture.asset(
       logo,
-      height: 60,
-      width: 100 ,
+      height: 55,
+      width: 80 ,
     );
   }
 }

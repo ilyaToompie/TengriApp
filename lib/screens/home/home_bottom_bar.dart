@@ -21,39 +21,37 @@ class NavBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentIndex = ref.watch(navBarIndexProvider);
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(topLeft: Radius.circular(32), topRight: Radius.circular(32)),
-      child: SalomonBottomBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        curve: Curves.easeIn,
-        currentIndex: currentIndex,
-        selectedColorOpacity: 1,
-        duration: const Duration(milliseconds: 250),
-        margin: const EdgeInsets.all(12),
-        unselectedItemColor: Colors.white,
-        onTap: (int index) {
-          ref.read(navBarIndexProvider.notifier).state = index;
-          if (_shouldAnimate(currentIndex, index)) {
-            ref
-                .read(homeTabControllerProvider.notifier)
-                .state
-                .animateToPage(index, duration: const Duration(milliseconds: 250), curve: Curves.easeIn);
-          } else {
-            ref.read(homeTabControllerProvider.notifier).state.jumpToPage(index);
-          }
-        },
-        items: homeTabs.entries.map((e) {
-          return SalomonBottomBarItem(
-            activeIcon: Icon(e.value[1], color: Colors.black,),
-            selectedColor: Colors.white,
-            icon: Icon(e.value[1],),
-            title: Text(
-              e.value[0],
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black),
-            ).tr(),
-          );
-        }).toList(),
-      ),
+    return SalomonBottomBar(
+      
+      backgroundColor: Color.fromRGBO(27, 27, 27, 1),
+      curve: Curves.easeIn,
+      currentIndex: currentIndex,
+      selectedColorOpacity: 1,
+      duration: const Duration(milliseconds: 250),
+      margin: const EdgeInsets.all(12),
+      unselectedItemColor: Colors.white,
+      onTap: (int index) {
+        ref.read(navBarIndexProvider.notifier).state = index;
+        if (_shouldAnimate(currentIndex, index)) {
+          ref
+              .read(homeTabControllerProvider.notifier)
+              .state
+              .animateToPage(index, duration: const Duration(milliseconds: 250), curve: Curves.easeIn);
+        } else {
+          ref.read(homeTabControllerProvider.notifier).state.jumpToPage(index);
+        }
+      },
+      items: homeTabs.entries.map((e) {
+        return SalomonBottomBarItem(
+          activeIcon: Icon(e.value[1], color: Colors.black,),
+          selectedColor: Colors.white,
+          icon: Icon(e.value[1],),
+          title: Text(
+            e.value[0],
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black),
+          ).tr(),
+        );
+      }).toList(),
     );
   }
 

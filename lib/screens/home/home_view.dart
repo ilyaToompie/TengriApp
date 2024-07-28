@@ -15,6 +15,7 @@ class HomeView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final tabController = ref.watch(homeTabControllerProvider);
     return Scaffold(
+       
         bottomNavigationBar: const NavBar(),
         body: PageView(
           allowImplicitScrolling: true,

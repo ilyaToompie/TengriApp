@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/components/splash_logo.dart';
+import 'package:lms_app/configs/app_config.dart';
 import 'package:lms_app/configs/features_config.dart';
 import 'package:lms_app/models/app_settings_model.dart';
 import 'package:lms_app/screens/auth/no_user.dart';
@@ -79,6 +80,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppConfig.appThemeColor,
       body: !splashIconAnimationEnabled
           ? const Center(child: SplashLogo())
           : MirrorAnimationBuilder<double>(

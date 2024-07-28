@@ -1,5 +1,5 @@
 // LOGO
-const String logo = 'assets/images/logo.png';
+const String logo = 'assets/images/logo.svg';
 
 // Splash Icon
 const String splash = 'assets/images/splash.png';

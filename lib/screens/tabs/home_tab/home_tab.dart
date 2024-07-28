@@ -1,8 +1,11 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:lms_app/components/app_logo.dart';
+import 'package:lms_app/configs/app_config.dart';
+import 'package:lms_app/configs/font_config.dart';
 import 'package:lms_app/screens/tabs/home_tab/top_authors.dart';
 import 'package:lms_app/screens/notifications/notifications.dart';
 import 'package:lms_app/screens/search/search_view.dart';
@@ -38,15 +41,36 @@ class HomeTab extends ConsumerWidget {
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
-            
-            title: const Padding(
-              padding: EdgeInsets.only(bottom: 16.0, left: 10),
-              child: AppLogo(),
+            toolbarHeight: 60,
+            flexibleSpace: Container(
+              decoration:  const BoxDecoration(
+                gradient: AppConfig.appBarGradient       
+             ),   ),
+            title:  Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Padding(
+                padding: const EdgeInsets.only(top:4.0),
+                child: Row(
+                  children: [
+                    const AppLogo(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Row(
+                        children: [
+                          Text('Tengri', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.getFont(fontFamily).fontFamily,),),
+                          Text('App', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromRGBO(250, 193, 49, 1)),),
+
+                        ],
+                      ),
+
+                    )
+                  ],
+                ),
+              ),
             ),
             pinned: true,
             floating: true,
             backgroundColor: Theme.of(context).primaryColor,
-            elevation: 0,
             foregroundColor: Colors.white,
             actions: [
               Padding(

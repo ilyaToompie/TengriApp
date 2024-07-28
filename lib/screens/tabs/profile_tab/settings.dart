@@ -47,7 +47,7 @@ class AppSettings extends ConsumerWidget with UserMixin {
           leading: Icon(notificationEnbaled ? LineIcons.bell : LineIcons.bellSlash),
           title: const Text('notifications').tr(),
           trailing: Switch.adaptive(
-            activeColor: Theme.of(context).colorScheme.onPrimary,
+            activeColor: Theme.of(context).colorScheme.onSecondary,
             value: notificationEnbaled,
             onChanged: (value) => NotificationService().handleSubscription(context, value, ref),
           ),
@@ -57,7 +57,7 @@ class AppSettings extends ConsumerWidget with UserMixin {
           leading: const Icon(Icons.dark_mode),
           title: const Text('dark-mode').tr(),
           trailing: Switch.adaptive(
-            activeColor: Theme.of(context).colorScheme.onPrimary,
+            activeColor: Theme.of(context).colorScheme.onSecondary,
             value: ref.watch(themeProvider).isDarkMode,
             onChanged: (value) => ref.read(themeProvider.notifier).changeTheme(value),
           ),
@@ -76,20 +76,14 @@ class AppSettings extends ConsumerWidget with UserMixin {
             ],
           ),
         ),
-        const Divider(),
+        /*const Divider(),
         ListTile(
           title: const Text('privacy-policy').tr(),
           leading: const Icon(LineIcons.lock),
           trailing: const Icon(FeatherIcons.chevronRight),
           onTap: () => AppService().openLinkWithCustomTab(setttings?.privacyUrl ?? ''),
-        ),
-        const Divider(),
-        ListTile(
-          title: const Text('contact-us').tr(),
-          leading: const Icon(LineIcons.envelope),
-          trailing: const Icon(FeatherIcons.chevronRight),
-          onTap: () => AppService().openEmailSupport(setttings?.supportEmail ?? ''),
-        ),
+        ),*/
+        
         const Divider(),
         ListTile(
           title: const Text('rate-app').tr(),
@@ -125,20 +119,7 @@ class AppSettings extends ConsumerWidget with UserMixin {
             style: TextStyle(fontWeight: FontWeight.bold),
           ).tr(),
         ),
-        Visibility(
-          visible: setttings?.social?.tiktok != null,
-          child: Column(
-            children: [
-              ListTile(
-                title: const Text('tiktok').tr(),
-                leading: const Icon(LineIcons.alternateTicket),
-                trailing: const Icon(FeatherIcons.chevronRight),
-                onTap: () => AppService().openLink(setttings!.social!.tiktok!),
-              ),
-              const Divider(),
-            ],
-          ),
-        ),
+       
         Visibility(
           visible: setttings?.social?.telegram != null,
           child: Column(
@@ -154,7 +135,7 @@ class AppSettings extends ConsumerWidget with UserMixin {
           ),
         ),
         Visibility(
-          visible: true,
+          visible: setttings?.social?.whatsapp != null,
           child: Column(
             children: [
               ListTile(

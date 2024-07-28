@@ -3,10 +3,12 @@ import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/configs/app_assets.dart';
+import 'package:lms_app/configs/app_config.dart';
 import 'package:lms_app/iAP/iap_config.dart';
 import 'package:lms_app/iAP/iap_screen.dart';
 import 'package:lms_app/screens/check_homework/homework_course_screen.dart';
 import 'package:lms_app/screens/tabs/profile_tab/user_roles_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../components/user_avatar.dart';
 import '../../../mixins/user_mixin.dart';
 import '../../../models/user_model.dart';
@@ -44,13 +46,26 @@ class UserInfo extends StatelessWidget with UserMixin {
         ),
         UserRolesWidget(user: user, ref: ref,),
         if (user.role!.contains('author') || user.role!.contains('admin'))
-        ListTile(title: Text("homework_solutions_title".tr()), 
-        leading: const Icon(FeatherIcons.bookOpen),                 
-        trailing: const Icon(FeatherIcons.chevronRight),
-        onTap: () {
-          NextScreen.iOS(context, HomeworkCourseScreen(user: user,));
-        },
-),
+        Column(
+          children: [
+            ListTile(title: Text("homework_solutions_title".tr()), 
+            leading: const Icon(FeatherIcons.bookOpen),                 
+            trailing: const Icon(FeatherIcons.chevronRight),
+            onTap: () {
+              NextScreen.iOS(context, HomeworkCourseScreen(user: user,));
+            },
+            ),
+            ListTile(title: Text("open_admin_panel_title".tr()), 
+            leading: const Icon(Icons.web),                 
+            trailing: const Icon(FeatherIcons.chevronRight),
+            onTap: () async {
+            if (!await launchUrl(AppConfig.webAdminURL)) {
+                throw Exception('Could not launch $AppConfig.webAdminURL');
+            }   
+            },
+            ),
+          ],
+        ),
         Consumer(
           builder: (context, ref, child) {
             if (IAPConfig.iAPEnabled) {
