@@ -13,7 +13,6 @@ import 'package:lms_app/services/auth_service.dart';
 import 'package:lms_app/services/firebase_service.dart';
 import 'package:lms_app/utils/next_screen.dart';
 import 'package:lms_app/utils/snackbars.dart';
-import '../iAP/iap_screen.dart';
 import '../providers/user_data_provider.dart';
 
 mixin UserMixin {
@@ -109,7 +108,7 @@ mixin UserMixin {
       if (!isExpired(user)) {
         NextScreen.popup(context, CurriculamScreen(course: course));
       } else {
-        NextScreen.openBottomSheet(context, const IAPScreen());
+        //NextScreen.openBottomSheet(context, const IAPScreen());
       }
     }
   }

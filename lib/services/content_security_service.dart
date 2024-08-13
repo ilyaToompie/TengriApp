@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/utils/toasts.dart';
 import 'package:screen_protector/screen_protector.dart';
 

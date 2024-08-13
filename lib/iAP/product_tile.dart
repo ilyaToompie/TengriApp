@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:lms_app/iAP/iap_mixin.dart';
+import 'iap_mixin.dart';
 
 import '../mixins/user_mixin.dart';
 import '../models/user_model.dart';
