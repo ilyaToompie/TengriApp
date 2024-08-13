@@ -56,13 +56,7 @@ class AppSettingsModel {
   }
 
   static LicenseType _getLicenseType(String? value) {
-    if (value == 'regular') {
-      return LicenseType.regular;
-    } else if (value == 'extended') {
       return LicenseType.extended;
-    } else {
-      return LicenseType.none;
-    }
   }
 }
 

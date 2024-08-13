@@ -15,6 +15,7 @@ import 'package:lms_app/screens/auth/login.dart';
 import 'package:lms_app/screens/homework_lesson/homework_lesson.dart';
 import 'package:lms_app/screens/quiz_lesson/quiz_screen.dart';
 import 'package:lms_app/screens/video_lesson.dart';
+import 'package:lms_app/services/content_security_service.dart';
 import 'package:lms_app/services/firebase_service.dart';
 import 'package:lms_app/utils/loading_widget.dart';
 import 'package:lms_app/utils/next_screen.dart';
@@ -26,6 +27,8 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
 
   final Course course;
   final String sectionId;
+
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -76,6 +79,13 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
       },
     );
   }
+  void initState() {
+    ContentSecurityService().initContentSecurity();
+  }
+
+  void dispose() {
+    ContentSecurityService().disposeContentSecurity();
+  }
 
   bool _isLessonAccessible(int index, List<Lesson> lessons, UserModel? user) {
     if (index == 0) {
@@ -106,7 +116,7 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
       NextScreen.openBottomSheet(context, const LoginScreen());
     }
   }
-
+  
   void _openLesson(BuildContext context, Lesson lesson, UserModel user, WidgetRef ref) async {
     final status = await homeworkStatus(lesson, user, course);
     if (lesson.contentType == 'homework') {
@@ -215,11 +225,11 @@ Future<bool?> showPlatformDialog({
           if (cancelText != null)
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text(cancelText, style: TextStyle(color: Theme.of(context).primaryColor)),
-            ),
+              child: Text(cancelText, style: TextStyle(color: Colors.amber )),//Theme.of(context).primaryColor)),
+            ),//
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(deleteText!, style: TextStyle(color: Theme.of(context).primaryColor)),
+            child: Text(deleteText!, style: TextStyle(color: Colors.amber )),//Theme.of(context).primaryColor)),
           ),
         ],
       ),

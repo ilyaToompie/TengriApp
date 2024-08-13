@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +10,7 @@ import 'package:lms_app/providers/user_data_provider.dart';
 import 'package:lms_app/screens/homework_lesson/attach_widget.dart';
 import 'package:lms_app/services/firebase_service.dart';
 import 'package:lms_app/utils/toasts.dart';
+import 'package:secure_content/secure_content.dart';
 import 'package:super_editor/super_editor.dart';
 
 class HomeworkLesson extends ConsumerStatefulWidget {
@@ -49,7 +52,17 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
 
     const String buttonText = 'Отправить решение';
     const IconData icon = Icons.done;
-    return Scaffold(
+    return SecureWidget(
+      
+      overlayWidgetBuilder: (context) => BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: const SizedBox(),
+                ),
+                appSwitcherMenuColor: Colors.black,
+                protectInAppSwitcherMenu: true,
+      isSecure: true, builder: (BuildContext context, void Function() onInit, void Function() onDispose) =>
+    
+     Scaffold(
       appBar: AppBar(
         title: Text(widget.lesson.name),
         titleSpacing: 0,
@@ -187,7 +200,7 @@ class _HomeworkLessonState extends ConsumerState<HomeworkLesson> {
           ),
         ),
       ),
-    );
+    ),);
   }
 }
 

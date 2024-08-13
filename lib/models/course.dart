@@ -43,7 +43,7 @@ class Course {
     return Course(
       id: snap.id,
       name: d['name'],
-      paymentLink: d['paymentLink'],
+      paymentLink: d['payment_link'],
       thumbnailUrl: d['image_url'],
       createdAt: (d['created_at'] as Timestamp).toDate(),
       updatedAt: d['updated_at'] == null ? null : (d['updated_at'] as Timestamp).toDate(),

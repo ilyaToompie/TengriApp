@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,8 +10,8 @@ import 'package:lms_app/screens/quiz_lesson/question_tile.dart';
 import 'package:lms_app/screens/quiz_lesson/quiz_complete.dart';
 import 'package:lms_app/utils/next_screen.dart';
 import 'package:lms_app/utils/snackbars.dart';
+import 'package:secure_content/secure_content.dart';
 
-import '../../services/content_security_service.dart';
 
 final selectedOptionProvider = StateProvider.autoDispose<int?>((ref) => null);
 final questionPageControllerProvider = Provider((ref) => PageController(initialPage: 0));
@@ -29,63 +31,60 @@ class QuizLesson extends ConsumerStatefulWidget {
 
 class _QuizLessonState extends ConsumerState<QuizLesson> {
   @override
-  void initState() {
-    ContentSecurityService().initContentSecurity(ref);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    ContentSecurityService().disposeContentSecurity();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final List<Question> questions = widget.lesson.questions ?? [];
     final pageController = ref.watch(questionPageControllerProvider);
     final selectedOption = ref.watch(selectedOptionProvider);
     final currentPageIndex = ref.watch(currentPageIndexProvider);
 
-    return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: Text(widget.lesson.name),
-          titleTextStyle: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Theme.of(context).primaryColor,
-              foregroundColor: Colors.white,
-            ),
-            onPressed: () => _onNextBtnPressed(context, selectedOption, currentPageIndex, questions, ref, pageController),
-            child: Text('next',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    )).tr(),
+    return SecureWidget(
+              
+       builder: (BuildContext context, void Function() onInit, void Function() onDispose) => Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            title: Text(widget.lesson.name),
+            titleTextStyle: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
           ),
-        ),
-        body: PageView.builder(
-          controller: pageController,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: questions.length,
-          onPageChanged: (value) => ref.read(currentPageIndexProvider.notifier).update((state) => value),
-          itemBuilder: (context, questionIndex) {
-            final Question question = questions[questionIndex];
-            return QuestionTile(
-              ref: ref,
-              questions: questions,
-              currentPageIndex: currentPageIndex,
-              question: question,
-              questionIndex: questionIndex,
-              selectedOption: selectedOption,
-            );
-          },
-        ));
+          bottomNavigationBar: BottomAppBar(
+            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+            child: TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () => _onNextBtnPressed(context, selectedOption, currentPageIndex, questions, ref, pageController),
+              child: Text('next',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      )).tr(),
+            ),
+          ),
+          body: PageView.builder(
+            controller: pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: questions.length,
+            onPageChanged: (value) => ref.read(currentPageIndexProvider.notifier).update((state) => value),
+            itemBuilder: (context, questionIndex) {
+              final Question question = questions[questionIndex];
+              return QuestionTile(
+                ref: ref,
+                questions: questions,
+                currentPageIndex: currentPageIndex,
+                question: question,
+                questionIndex: questionIndex,
+                selectedOption: selectedOption,
+              );
+            },
+          )), isSecure: true,
+    overlayWidgetBuilder: (context) => BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: const SizedBox(),
+                ),
+                appSwitcherMenuColor: Colors.black,
+                protectInAppSwitcherMenu: true,
+    );
   }
 
   void _onNextBtnPressed(

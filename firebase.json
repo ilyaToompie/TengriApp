@@ -1,1 +1,47 @@
-{"flutter":{"platforms":{"dart":{"lib/firebase_options.dart":{"projectId":"tengri-app","configurations":{"android":"1:176088517890:android:8bced881bb68c96791861b","ios":"1:176088517890:ios:9ebf8d6b4f52d11c91861b"}}},"android":{"default":{"projectId":"tengri-app","appId":"1:176088517890:android:8bced881bb68c96791861b","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"tengri-app","appId":"1:176088517890:ios:9ebf8d6b4f52d11c91861b","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}}}},"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]}}
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "tengri-app",
+          "configurations": {
+            "android": "1:176088517890:android:8bced881bb68c96791861b",
+            "ios": "1:176088517890:ios:9ebf8d6b4f52d11c91861b"
+          }
+        }
+      },
+      "android": {
+        "default": {
+          "projectId": "tengri-app",
+          "appId": "1:176088517890:android:8bced881bb68c96791861b",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "tengri-app",
+          "appId": "1:176088517890:ios:9ebf8d6b4f52d11c91861b",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "extensions": {
+    "delete-user-data": "firebase/delete-user-data@0.1.22"
+  }
+}

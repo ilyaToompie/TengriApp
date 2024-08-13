@@ -17,7 +17,7 @@ class AppConfig {
                 ]);
  
   // Android Package Name
-  static const String androidPackageName = 'com.tengriteam.tengri_app';
+  static const String androidPackageName = 'com.tengri.lms_app';
 
   // iOS App ID
   static const String iosAppID = '000000';

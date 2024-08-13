@@ -1,7 +1,7 @@
 {
   "project_info": {
     "project_number": "176088517890",
-    "project_id": "tengri-app",
+    "project_id": "lms_app",
     "storage_bucket": "tengri-app.appspot.com"
   },
   "client": [
@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:176088517890:android:8bced881bb68c96791861b",
         "android_client_info": {
-          "package_name": "com.mrblab.prime_lms"
+          "package_name": "com.tengri.lms_app"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "176088517890-ak4ptj7u5umnq2suiip8jecfliacj6i7.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.mrblab.lmsApp"
+                "bundle_id": "com.tengri.lms_app"
               }
             }
           ]

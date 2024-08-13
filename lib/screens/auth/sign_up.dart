@@ -119,14 +119,19 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               ),
               Text(
                 'follow-simple-steps',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).primaryColor),
               ).tr(),
               const SizedBox(height: 100,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextFormField(
+                    cursorColor: Theme.of(context).primaryColor,                    
                     decoration: InputDecoration(
+                      labelStyle: TextStyle(color: Theme.of(context).primaryColor),
+                      focusedBorder:OutlineInputBorder(
+                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderRadius: BorderRadius.circular(25.0),),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-name'.tr(),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
@@ -147,7 +152,12 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   ),
                   const SizedBox(height: 30),
                   TextFormField(
+                    cursorColor: Theme.of(context).primaryColor,                    
                     decoration: InputDecoration(
+                      labelStyle: TextStyle(color: Theme.of(context).primaryColor),
+                      focusedBorder:OutlineInputBorder(
+                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderRadius: BorderRadius.circular(25.0),),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-email'.tr(),
                         label: const Text('email').tr(),
@@ -168,7 +178,12 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   ),
                   const SizedBox(height: 30),
                   TextFormField(
+                    cursorColor: Theme.of(context).primaryColor,                    
                     decoration: InputDecoration(
+                      labelStyle: TextStyle(color: Theme.of(context).primaryColor),
+                      focusedBorder:OutlineInputBorder(
+                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderRadius: BorderRadius.circular(25.0),),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-password'.tr(),
                         label: const Text('password').tr(),
@@ -214,7 +229,11 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                           "already-have-account",
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
                         ).tr(),
+                        SizedBox(width: 10,),
                         TextButton(
+                          style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(Theme.of(context).primaryColor)
+                            ),
                             child: Text(
                               'login',
                               style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600, fontSize: 15, color: Theme.of(context).colorScheme.onSecondary),
