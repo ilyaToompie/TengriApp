@@ -7,7 +7,7 @@ import 'package:lms_app/utils/custom_cached_image.dart';
 import 'package:lms_app/utils/next_screen.dart';
 
 class GridListCourseTileAuthor extends StatefulWidget {
-  GridListCourseTileAuthor({super.key, required this.course});
+  const GridListCourseTileAuthor({super.key, required this.course});
   
   final Course course;
 
@@ -18,6 +18,7 @@ class GridListCourseTileAuthor extends StatefulWidget {
 class _GridListCourseTileAuthorState extends State<GridListCourseTileAuthor> {
   late String authorId = widget.course.author.id;
 
+  @override
   Widget build(BuildContext context) {
     final heroTag = UniqueKey();
     return Column(

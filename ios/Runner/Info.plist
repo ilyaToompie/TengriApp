@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>lms_app</string>
+	<string>Tengri App</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -54,11 +54,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>This app requires this persmission to upload your selected photos from you device</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This app requires this persmission to upload your selected photos from you device</string>
+	<string>Tengri App необходим доступ к камере вашего устройства для установки аватара</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires this persmission to upload your selected photos from you device</string>
+	<string>Tengri App необходимо разрешение на загрузку выбранных фотографий с вашего устройства для установки аватара</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

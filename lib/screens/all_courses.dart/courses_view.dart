@@ -3,8 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lms_app/ads/ad_manager.dart';
-import 'package:lms_app/ads/banner_ad.dart';
 import 'package:lms_app/components/loading_grid_tile.dart';
 import 'package:lms_app/configs/app_assets.dart';
 import 'package:lms_app/constants/custom_colors.dart';
@@ -138,7 +136,7 @@ class _AllCoursesViewState extends ConsumerState<AllCoursesView> {
           ),
         ],
       ),
-      bottomNavigationBar: AdManager.isBannerEnbaled(ref) ? const BannerAdWidget() : null,
+      //bottomNavigationBar: AdManager.isBannerEnbaled(ref) ? const BannerAdWidget() : null,
       body: RefreshIndicator(
         onRefresh: () async => await _onRefresh(),
         child: SingleChildScrollView(

@@ -41,7 +41,7 @@ class BuyCourseScreen extends StatelessWidget {
                 SizedBox(
                   height: 100, width: MediaQuery.sizeOf(context).width - 80,
                   child: Text('buy-course-subititle'.tr(args: [course.name]), textAlign: TextAlign.center,)),
-                Text('price'.tr(args: [course.price.toString() + "₸"],), style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),),
+                Text('price'.tr(args: ["${course.price}₸"],), style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),),
                 const SizedBox(height: 20,),
 
                 Text('click-to-go'.tr(), style: Theme.of(context).textTheme.titleSmall,),
@@ -83,7 +83,7 @@ class BuyCourseScreen extends StatelessWidget {
               ).tr(),
             ),
             onPressed: () async {
-             Clipboard.setData(new ClipboardData(text: course.paymentLink));
+             Clipboard.setData(ClipboardData(text: course.paymentLink));
              openToast("copied-to-clipboard".tr());
             },
           ),
@@ -125,7 +125,7 @@ class BuyCourseScreen extends StatelessWidget {
 class ImageUploadScreen extends StatefulWidget {
   final Course course;
 
-  const ImageUploadScreen({Key? key, required this.course}) : super(key: key);
+  const ImageUploadScreen({super.key, required this.course});
   @override
   _ImageUploadScreenState createState() => _ImageUploadScreenState();
 }
@@ -140,7 +140,6 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
       if (pickedFile != null) {
         _image = File(pickedFile.path);
       } else {
-        print('No image selected.');
       }
     });
   }
@@ -157,7 +156,6 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
     }
 
     try {
-      print('Uploading image...');
       Reference ref = FirebaseStorage.instance
           .ref()
           .child('payment_checks/${Path.basename(_image!.path)}');
@@ -166,11 +164,8 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
       
       String imageUrl = await taskSnapshot.ref.getDownloadURL();
       
-      print('Image uploaded. URL: $imageUrl');
       FirebaseService().createPaymentDocument(imageUrl, widget.course);
-      print('Document created.');
     } catch (e) {
-      print('Error uploading image to Firebase Storage: $e');
     }
   }
 
@@ -178,7 +173,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('upload-check-title'.tr(), style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
+        title: Text('upload-check-title'.tr(), style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),),
       ),
       body: Center(
         child: Column(
@@ -188,7 +183,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
                 ? Column(
                   children: [
                     Text('selected-check-title'.tr(), style: Theme.of(context).textTheme.titleLarge,),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     SizedBox(
                       height: 500, width: 500,
                       child: Image.file(_image!)
@@ -196,7 +191,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
                   ],
                 )
                 : Text('no-image-selected'.tr(), textAlign: TextAlign.center,),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextButton.icon(
               style: TextButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,
@@ -220,7 +215,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
               ),
               onPressed: _pickImage,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextButton.icon(
               style: TextButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,

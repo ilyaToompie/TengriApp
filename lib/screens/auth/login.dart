@@ -162,7 +162,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   Container(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -176,7 +176,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       onPressed: () => NextScreen.iOS(context, const ResetPassword()),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   RoundedLoadingButton(
                     animateOnTap: false,
                     controller: _btnController,
@@ -200,7 +200,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           "no-account",
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
                         ).tr(),
-                        SizedBox(width: 10,),
+                        const SizedBox(width: 10,),
                         TextButton(
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(Theme.of(context).primaryColor)

@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lms_app/ads/ad_manager.dart';
 import 'package:lms_app/components/mark_complete_button.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/lesson.dart';
@@ -40,7 +39,7 @@ class QuizComplete extends ConsumerWidget {
                 ).tr(),
                 onPressed: () {
                   // Placed ads when user failed the test
-                  AdManager.initInterstitailAds(ref);
+                  //AdManager.initInterstitailAds(ref);
                   NextScreen.replaceAnimation(context, QuizLesson(course: course, lesson: lesson));
                 },
               ),

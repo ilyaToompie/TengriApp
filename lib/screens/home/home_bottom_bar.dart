@@ -23,7 +23,7 @@ class NavBar extends ConsumerWidget {
     final currentIndex = ref.watch(navBarIndexProvider);
     return SalomonBottomBar(
       
-      backgroundColor: Color.fromRGBO(27, 27, 27, 1),
+      backgroundColor: const Color.fromRGBO(27, 27, 27, 1),
       curve: Curves.easeIn,
       currentIndex: currentIndex,
       selectedColorOpacity: 1,

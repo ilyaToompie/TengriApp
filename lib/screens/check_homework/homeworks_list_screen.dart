@@ -9,7 +9,7 @@ import 'package:lms_app/utils/next_screen.dart';
 class HomeworksListScreen extends StatelessWidget {
   final Course course;
 
-  const HomeworksListScreen({required this.course});
+  const HomeworksListScreen({super.key, required this.course});
 
   Future<List<HomeworkLesson>> fetchHomeworks() async {
     final snapshot = await FirebaseFirestore.instance
@@ -36,7 +36,7 @@ class HomeworksListScreen extends StatelessWidget {
         future: fetchHomeworks(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

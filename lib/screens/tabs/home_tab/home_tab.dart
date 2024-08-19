@@ -58,7 +58,7 @@ class HomeTab extends ConsumerWidget {
                       child: Row(
                         children: [
                           Text('Tengri', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: GoogleFonts.getFont(fontFamily).fontFamily,),),
-                          Text('App', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromRGBO(250, 193, 49, 1)),),
+                          const Text('App', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromRGBO(250, 193, 49, 1)),),
 
                         ],
                       ),

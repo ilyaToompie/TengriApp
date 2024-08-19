@@ -229,7 +229,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                           "already-have-account",
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w700),
                         ).tr(),
-                        SizedBox(width: 10,),
+                        const SizedBox(width: 10,),
                         TextButton(
                           style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(Theme.of(context).primaryColor)

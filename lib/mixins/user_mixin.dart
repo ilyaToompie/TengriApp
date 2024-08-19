@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lms_app/ads/ad_manager.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/user_model.dart';
 import 'package:lms_app/screens/curricullam_screen.dart';
@@ -66,7 +65,7 @@ mixin UserMixin {
         if (hasEnrolled(user, course)) {
           NextScreen.popup(context, CurriculamScreen(course: course));
         } else {
-          AdManager.initInterstitailAds(ref);
+          //AdManager.initInterstitailAds(ref);
           await _comfirmEnrollment(context, user, course, ref);
         }
       } else {
