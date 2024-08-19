@@ -36,7 +36,7 @@ class HomeworkCourseScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Text("select-your-course".tr(), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),),
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.sizeOf(context).width - 80,
                 height: 500,
                 child: AuthorCoursesForChecking(

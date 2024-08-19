@@ -8,7 +8,7 @@ import 'text_themes.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 final ThemeData lightTheme = ThemeData(
-  colorScheme:  ColorScheme.light(onSecondary: Colors.amber, onPrimary: Colors.amber, primary: Colors.amber, secondary: Color.fromARGB(115, 159, 159, 159),), 
+  colorScheme:  const ColorScheme.light(onSecondary: Colors.amber, onPrimary: Colors.amber, primary: Colors.amber, secondary: Color.fromARGB(115, 159, 159, 159),), 
   useMaterial3: true,
   brightness: Brightness.light,
   visualDensity: VisualDensity.adaptivePlatformDensity,

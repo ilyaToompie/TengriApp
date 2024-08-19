@@ -1,8 +1,6 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lms_app/ads/ad_manager.dart';
-import 'package:lms_app/ads/banner_ad.dart';
 import 'package:lms_app/screens/course_details.dart/course_share_button.dart';
 import 'bookmark_button.dart';
 import '../../models/course.dart';
@@ -31,7 +29,7 @@ class CourseDetailsView extends ConsumerWidget {
       bottomNavigationBar: Wrap(
         alignment: WrapAlignment.center,
         children: [
-          AdManager.isBannerEnbaled(ref) ? const BannerAdWidget() : Container(),
+          //AdManager.isBannerEnbaled(ref) ? const BannerAdWidget() : Container(),
           EnrollButton(course: course),
         ],
       ),

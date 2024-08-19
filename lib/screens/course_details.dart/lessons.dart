@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:lms_app/ads/ad_manager.dart';
 import 'package:lms_app/mixins/course_mixin.dart';
 import 'package:lms_app/mixins/user_mixin.dart';
 import 'package:lms_app/models/course.dart';
@@ -153,7 +152,7 @@ class Lessons extends ConsumerWidget with CourseMixin, UserMixin {
     }
 
     // Place interstitial ads when open any lesson
-    AdManager.initInterstitailAds(ref);
+    //AdManager.initInterstitailAds(ref);
   }
 
   Future<String> _homeworkTrailing(Lesson lesson, UserModel user, Course course) async {
@@ -225,11 +224,11 @@ Future<bool?> showPlatformDialog({
           if (cancelText != null)
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: Text(cancelText, style: TextStyle(color: Colors.amber )),//Theme.of(context).primaryColor)),
+              child: Text(cancelText, style: const TextStyle(color: Colors.amber )),//Theme.of(context).primaryColor)),
             ),//
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(deleteText!, style: TextStyle(color: Colors.amber )),//Theme.of(context).primaryColor)),
+            child: Text(deleteText!, style: const TextStyle(color: Colors.amber )),//Theme.of(context).primaryColor)),
           ),
         ],
       ),

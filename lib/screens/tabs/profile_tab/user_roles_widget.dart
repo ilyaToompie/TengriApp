@@ -23,7 +23,7 @@ class UserRolesWidget extends StatelessWidget {
                   Row(children: [
                     if (user.role!.contains('admin'))
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     //padding: const EdgeInsets.symmetric(horizontal: 100,vertical: 2.5),
                     child: Container(
                       decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(12)),
@@ -33,8 +33,8 @@ class UserRolesWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [  
                             Text("admin_pin".tr(), style: TextStyle(fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize, color: Colors.white, fontWeight: FontWeight.w600), ),
-                            SizedBox(width: 7.5,),
-                            Icon(FeatherIcons.shield, color: Colors.white,)
+                            const SizedBox(width: 7.5,),
+                            const Icon(FeatherIcons.shield, color: Colors.white,)
                           ],
                         ),
                       ),
@@ -43,7 +43,7 @@ class UserRolesWidget extends StatelessWidget {
                 
                 if (user.role!.contains('author'))
                   Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                     //padding: const EdgeInsets.symmetric(horizontal: 115.0, vertical: 2.5),
                     child: Container(
                       
@@ -54,8 +54,8 @@ class UserRolesWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [  
                             Text("author_pin".tr(), style: TextStyle(fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize, color: Colors.white, fontWeight: FontWeight.w600), ),
-                            SizedBox(width: 7.5,),
-                            Icon(FeatherIcons.book, color: Colors.white,)
+                            const SizedBox(width: 7.5,),
+                            const Icon(FeatherIcons.book, color: Colors.white,)
                           ],
                         ),
                       ),
@@ -66,7 +66,7 @@ class UserRolesWidget extends StatelessWidget {
                     children: [
                       if (!user.role!.contains('author'))
                       Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         //padding: const EdgeInsets.symmetric(horizontal: 115.0,vertical: 2.5),
                         child: Container(      
                           decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(12)),
@@ -76,8 +76,8 @@ class UserRolesWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [  
                                 Text("student_pin".tr(), style: TextStyle(fontSize: Theme.of(context).textTheme.bodyLarge?.fontSize, color: Colors.white, fontWeight: FontWeight.w600), ),
-                                SizedBox(width: 7.5,),
-                                Icon(FeatherIcons.book, color: Colors.white,)
+                                const SizedBox(width: 7.5,),
+                                const Icon(FeatherIcons.book, color: Colors.white,)
                               ],
                             ),
                           ),

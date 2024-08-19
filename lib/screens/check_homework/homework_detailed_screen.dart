@@ -10,7 +10,7 @@ class HomeworkDetailScreen extends StatefulWidget {
   final Course course;
   final HomeworkLesson homework;
 
-  const HomeworkDetailScreen({required this.homework, required this.course});
+  const HomeworkDetailScreen({super.key, required this.homework, required this.course});
 
   @override
   _HomeworkDetailScreenState createState() => _HomeworkDetailScreenState();
@@ -63,7 +63,7 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
           children: [
             Text(
               'exercise'.tr(),
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const Divider(
               thickness: 3,
@@ -74,7 +74,7 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
               future: exerciseFuture,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 } else if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 } else if (!snapshot.hasData) {
@@ -83,18 +83,18 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                   return Text(
                     snapshot.data!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   );
                 }
               },
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             if (widget.homework.text_solution.isNotEmpty)
               Column(
                 children: [
                   Text(
                     'solution'.tr(),
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   const Divider(
                     thickness: 3,

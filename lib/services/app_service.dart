@@ -1,11 +1,9 @@
-import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:launch_review/launch_review.dart';
 import 'package:lms_app/configs/app_assets.dart';
 import 'package:lms_app/configs/app_config.dart';
 import 'package:lms_app/models/review.dart';
@@ -75,14 +73,6 @@ class AppService {
     }
   }
 
-  Future launchAppReview(context) async {
-    await LaunchReview.launch(androidAppId: AppConfig.androidPackageName, iOSAppId: AppConfig.iosAppID, writeReview: false);
-    if (Platform.isIOS) {
-      if (AppConfig.iosAppID == '000000') {
-        openToast("The iOS version is not available on the AppStore yet");
-      }
-    }
-  }
 
   static String getVideoType(String videoSource) {
     if (videoSource.contains('youtu')) {

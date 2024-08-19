@@ -85,12 +85,6 @@ class AppSettings extends ConsumerWidget with UserMixin {
         ),*/
         
         const Divider(),
-        ListTile(
-          title: const Text('rate-app').tr(),
-          leading: const Icon(LineIcons.star),
-          trailing: const Icon(FeatherIcons.chevronRight),
-          onTap: () => AppService().launchAppReview(context),
-        ),
         Visibility(
           visible: user != null,
           child: Column(
