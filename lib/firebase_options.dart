@@ -63,12 +63,12 @@ class DefaultFirebaseOptions {
     messagingSenderId: '176088517890',
     projectId: 'tengri-app',
     storageBucket: 'tengri-app.appspot.com',
-    iosBundleId: 'com.tengri.tengriAppEdu',
+    iosBundleId: 'com.tengri.lms_app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCcbTsySsB-x5qlma8pkeFwbSP1ORVWBbE',
-    appId: '1:176088517890:android:8bced881bb68c96791861b',
+    appId: '1:176088517890:android:78c34ead8d56744591861b',
     messagingSenderId: '176088517890',
     projectId: 'tengri-app',
     storageBucket: 'tengri-app.appspot.com',
