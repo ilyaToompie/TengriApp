@@ -1,8 +1,8 @@
 name: lms_app
-description: A new Flutter project.
+description: Lms App.
 publish_to: 'none'
 
-version: 1.2.0+16
+version: 1.2.4+20
 
 environment:
   sdk: '>=3.1.0 <4.0.0'

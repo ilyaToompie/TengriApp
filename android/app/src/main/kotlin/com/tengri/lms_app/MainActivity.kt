@@ -1,4 +1,4 @@
-package com.example.mental_care
+package com.tengri.lms_app
 
 import io.flutter.embedding.android.FlutterActivity
 
