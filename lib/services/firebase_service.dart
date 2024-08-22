@@ -358,7 +358,7 @@ class FirebaseService {
 
   Future<List<UserModel>> getTopAuthors({int limit = 5}) async {
     List<UserModel> data = [];
-    await firestore.collection('users').where('role', arrayContainsAny: ['author', 'admin']).limit(limit).get().then((QuerySnapshot? snapshot) {
+    await firestore.collection('users').where('role', arrayContainsAny: ['author']).limit(limit).get().then((QuerySnapshot? snapshot) {
           data = snapshot!.docs.map((e) => UserModel.fromFirebase(e)).toList();
         });
     return data;
@@ -366,7 +366,7 @@ class FirebaseService {
 
   Future<List<UserModel>> getAllAuthors() async {
     List<UserModel> data = [];
-    await firestore.collection('users').where('role', arrayContainsAny: ['author', 'admin']).get().then((QuerySnapshot? snapshot) {
+    await firestore.collection('users').where('role', arrayContainsAny: ['author']).get().then((QuerySnapshot? snapshot) {
           data = snapshot!.docs.map((e) => UserModel.fromFirebase(e)).toList();
         });
     return data;
