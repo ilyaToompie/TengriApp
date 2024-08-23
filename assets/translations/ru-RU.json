@@ -70,7 +70,7 @@
     "instructor": "Учитель",
     "about-me": "Обо мне",
     "website": "Веб-сайт",
-    "created-by": "Создано",
+    "created-by": "Автор:",
     "last-updated": "Последнее обновление: {}",
     "language-": "Язык: {}",
     "duration-": "Длительность: {}",
@@ -170,7 +170,7 @@
     "image-not-selected-title": "Изображение не выбрано!",
     "image-not-selected-subtitle": "Пожалуйста, выберите изображение перед отправкой",
     "check-uploaded-title": "Чек отправлен на проверку",
-    "check-uploaded-subtitle": "Мы в скором времени проверим платёж\nИ откроем доступ к курсу.",
+    "check-uploaded-subtitle": "Мы в скором времени\nпроверим платёж\nИ откроем доступ к курсу.",
     "open_admin_panel_title": "Открыть панель управления"
 
 

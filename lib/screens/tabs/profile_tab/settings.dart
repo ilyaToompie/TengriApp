@@ -84,7 +84,6 @@ class AppSettings extends ConsumerWidget with UserMixin {
           onTap: () => AppService().openLinkWithCustomTab(setttings?.privacyUrl ?? ''),
         ),*/
         
-        const Divider(),
         Visibility(
           visible: user != null,
           child: Column(

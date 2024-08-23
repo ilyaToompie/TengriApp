@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:lms_app/components/privacy_info.dart';
 import 'package:lms_app/screens/auth/reset_password.dart';
 import 'package:lms_app/screens/auth/sign_up.dart';
 import 'package:lms_app/screens/splash.dart';
@@ -98,7 +97,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
               Text(
                 'login-to-access-features',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).primaryColor),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(),
               ).tr(),
               const SizedBox(height: 175,),
               Column(
@@ -108,12 +107,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     cursorColor: Theme.of(context).primaryColor,
                     decoration: InputDecoration(
                       focusedBorder:OutlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),
                       ),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-email'.tr(),
-                        label: Text('email', style: TextStyle(color: Theme.of(context).primaryColor)).tr(),
+                        label: const Text('email').tr(),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(40),
                         ),
@@ -136,7 +135,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     cursorColor: Theme.of(context).primaryColor,
                     decoration: InputDecoration(
                       focusedBorder:OutlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),
                       ),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -144,7 +143,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(40),
                         ),
-                        label: Text('password', style: TextStyle(color: Theme.of(context).primaryColor),).tr(),
+                        label: const Text('password').tr(),
                         suffixIcon: IconButton(
                           padding: const EdgeInsets.all(0),
                           style: IconButton.styleFrom(padding: const EdgeInsets.all(0)),
@@ -207,13 +206,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             ),
                             child: Text(
                               'create-account',
-                              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600, fontSize: 15, color: Theme.of(context).colorScheme.onSecondary),
+                              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600, fontSize: 15, color: Theme.of(context).colorScheme.primary),
                             ).tr(),
                             onPressed: () => NextScreen.replace(context, const SignUpScreen())),
                       ],
                     ),
                   ),
-                  const PrivacyInfo(),
                 ],
               ),
             ],

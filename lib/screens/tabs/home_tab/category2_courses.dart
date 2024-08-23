@@ -50,7 +50,7 @@ class Category2Courses extends ConsumerWidget {
                                 const TextSpan(text: ' '),
                                 TextSpan(
                                   text: category.name,
-                                  style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.blueAccent, fontWeight: FontWeight.w700),
+                                  style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.w700),
                                 )
                               ])),
                         ),

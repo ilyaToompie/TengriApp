@@ -9,6 +9,7 @@ class AppSettingsModel {
   final AppSettingsSocialInfo? social;
   final AdsModel? ads;
   late final LicenseType? license;
+  final bool isTest;
 
   AppSettingsModel({
     required this.freeCourses,
@@ -29,6 +30,7 @@ class AppSettingsModel {
     required this.ads,
     required this.license,
     required this.contentSecurity,
+    required this.isTest
   });
 
   factory AppSettingsModel.fromFirestore(DocumentSnapshot snap) {
@@ -50,14 +52,15 @@ class AppSettingsModel {
       homeCategory3: d['category3'] != null ? HomeCategory.fromMap(d['category3']) : null,
       social: d['social'] != null ? AppSettingsSocialInfo.fromMap(d['social']) : null,
       ads: d['ads'] != null ? AdsModel.fromMap(d['ads']) : null,
-      license: _getLicenseType(d['license']),
+      license: LicenseType.extended,//_getLicenseType(d['license']),
       contentSecurity: true,
+      isTest: d['isTest'],
     );
   }
-
+/*
   static LicenseType _getLicenseType(String? value) {
       return LicenseType.extended;
-  }
+  }*/
 }
 
 class HomeCategory {

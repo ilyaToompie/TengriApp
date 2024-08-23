@@ -2,20 +2,22 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/user_model.dart';
+import 'package:lms_app/providers/app_settings_provider.dart';
 import 'package:lms_app/screens/author_profie/author_profile.dart';
 import 'package:lms_app/services/app_service.dart';
 import 'package:lms_app/services/firebase_service.dart';
 import 'package:lms_app/utils/next_screen.dart';
 import 'package:lms_app/utils/snackbars.dart';
 
-class CourseInfo extends StatelessWidget {
+class CourseInfo extends ConsumerWidget{
   const CourseInfo({super.key, required this.course});
   final Course course;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Column(
@@ -36,21 +38,26 @@ class CourseInfo extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          Row(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 4.0, right: 9),
-                child: Text("₸", style: TextStyle(fontSize: 20, color: Colors.blueGrey), ),
-              ),
-              Text('price'.tr(), style: Theme.of(context).textTheme.bodyLarge).tr(
-                args: [
-                  course.price == 0
-                  ? "free".tr()
-                  : "${course.price} KZT",
-
-                ],
-              ),
-            ],
+          Visibility(
+            visible: ref.read(appSettingsProvider)!.isTest
+            ? false
+            : true,
+            child: Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 4.0, right: 9),
+                  child: Text("₸", style: TextStyle(fontSize: 20, color: Colors.blueGrey), ),
+                ),
+                Text('price'.tr(), style: Theme.of(context).textTheme.bodyLarge).tr(
+                  args: [
+                    course.price == 0
+                    ? "free".tr()
+                    : "${course.price} KZT",
+            
+                  ],
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 4,),
           Row(

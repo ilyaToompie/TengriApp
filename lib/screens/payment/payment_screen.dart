@@ -55,9 +55,9 @@ class BuyCourseScreen extends StatelessWidget {
                       onTap: () {
                         launchUrl(Uri.parse(course.paymentLink));
                       },    
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        enabledBorder: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Theme.of(context).hintColor)),
                       ),
                     )
                   ),
@@ -238,6 +238,7 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
                 ).tr(),
               ),
               onPressed: () async {
+                
                 await _uploadImageToFirebase();
                 if(_image != null){
                 await PlatformDialog(

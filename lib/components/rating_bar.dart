@@ -29,7 +29,7 @@ class RatingViewer extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8),
             child: Text(
               rating.toStringAsFixed(1),
-              style: const TextStyle(fontSize: 13, color: Colors.deepOrange, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
           ),
         )

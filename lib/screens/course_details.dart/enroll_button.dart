@@ -6,6 +6,7 @@ import 'package:lms_app/constants/app_constants.dart';
 import 'package:lms_app/mixins/course_mixin.dart';
 import 'package:lms_app/mixins/user_mixin.dart';
 import 'package:lms_app/models/course.dart';
+import 'package:lms_app/providers/app_settings_provider.dart';
 import 'package:lms_app/utils/loading_widget.dart';
 import '../../providers/user_data_provider.dart';
 
@@ -32,11 +33,16 @@ class EnrollButton extends ConsumerWidget with UserMixin {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Visibility(
-              visible: !hasEnrolled(user, course),
-              child: Flexible(
-                fit: FlexFit.loose,
-                flex: isPremium ? 1 : 2,
-                child: isPremium ? _PremiumTag() : _FreeTag(),
+              visible: ref.read(appSettingsProvider)!.isTest
+                ? false
+                : true,
+              child: Visibility(
+                visible: !hasEnrolled(user, course),
+                child: Flexible(
+                  fit: FlexFit.loose,
+                  flex: isPremium ? 1 : 2,
+                  child: _PremiumTag(),
+                ),
               ),
             ),
             Flexible(

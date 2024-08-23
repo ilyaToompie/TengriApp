@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:lms_app/components/privacy_info.dart';
 import 'package:lms_app/models/user_model.dart';
 import 'package:lms_app/screens/auth/login.dart';
 import 'package:lms_app/screens/splash.dart';
@@ -119,7 +118,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               ),
               Text(
                 'follow-simple-steps',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Theme.of(context).primaryColor),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(),
               ).tr(),
               const SizedBox(height: 100,),
               Column(
@@ -128,9 +127,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   TextFormField(
                     cursorColor: Theme.of(context).primaryColor,                    
                     decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Theme.of(context).primaryColor),
                       focusedBorder:OutlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-name'.tr(),
@@ -154,9 +152,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   TextFormField(
                     cursorColor: Theme.of(context).primaryColor,                    
                     decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Theme.of(context).primaryColor),
                       focusedBorder:OutlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-email'.tr(),
@@ -180,9 +177,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   TextFormField(
                     cursorColor: Theme.of(context).primaryColor,                    
                     decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Theme.of(context).primaryColor),
                       focusedBorder:OutlineInputBorder(
-                        borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2.0),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                         hintText: 'enter-password'.tr(),
@@ -242,7 +238,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       ],
                     ),
                   ),
-                  const PrivacyInfo(),
                 ],
               ),
             ],

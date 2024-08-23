@@ -25,7 +25,6 @@ final ThemeData lightTheme = ThemeData(
     foregroundColor: Colors.white,
     
   ),
-  
   dividerTheme: DividerThemeData(color: Colors.blueGrey.shade100, thickness: 0.7),
 );
 

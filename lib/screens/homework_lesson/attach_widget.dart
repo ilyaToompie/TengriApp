@@ -37,25 +37,26 @@ Widget build(BuildContext context) {
 			),
 			Expanded(
 			child: SizedBox(
+
 				child: selectedImages.isEmpty
 					? null
 					: GridView.builder(
-            scrollDirection: Axis.horizontal,
+					            scrollDirection: Axis.horizontal,
 						itemCount: selectedImages.length,
 						gridDelegate:
 							const SliverGridDelegateWithFixedCrossAxisCount(
 								crossAxisCount: 1),
 						itemBuilder: (BuildContext context, int index) {
 						return Padding(
-                          padding: const EdgeInsets. symmetric(vertical: 24.0),
-                          child: Center(
-                            child: kIsWeb
-                              ? Image.network(selectedImages[index].path)
-                              : Padding(
-                                                            padding: const EdgeInsets.only(right: 8.0),
-                                                            child: Image.file(selectedImages[index], fit: BoxFit.fill,),
-                                                          )),
-                        );
+					                          padding: const EdgeInsets. symmetric(vertical: 24.0),
+					                          child: Center(
+					                            child: kIsWeb
+					                              ? Image.network(selectedImages[index].path)
+					                              : Padding(
+					                                                            padding: const EdgeInsets.only(right: 4.0),
+					                                                            child: Image.file(selectedImages[index], fit: BoxFit.fill,),
+					                                                          )),
+					                        );
 						},
 					),
 			),

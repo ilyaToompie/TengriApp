@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/models/course.dart';
 import 'package:lms_app/models/user_model.dart';
+import 'package:lms_app/providers/app_settings_provider.dart';
 import 'package:lms_app/screens/curricullam_screen.dart';
 import 'package:lms_app/screens/home/home_bottom_bar.dart';
 import 'package:lms_app/screens/home/home_view.dart';
@@ -42,9 +43,7 @@ mixin UserMixin {
     }
   }
 
-  static bool isUserPremium(UserModel? user) {
-    return user != null && user.subscription != null && isExpired(user) == false ? true : false;
-  }
+
 
   int remainingDays(UserModel user) {
     final DateTime expireDate = user.subscription!.expireAt;
@@ -60,7 +59,8 @@ mixin UserMixin {
     required WidgetRef ref,
   }) async {
     if (user != null) {
-      if (course.price == 0) {
+
+      if (course.price == 0 && course.priceStatus == "free") {
         // Free Course
         if (hasEnrolled(user, course)) {
           NextScreen.popup(context, CurriculamScreen(course: course));
@@ -70,16 +70,16 @@ mixin UserMixin {
         }
       } else {
         //  Premium Course
-        if (user.subscription != null && !isExpired(user)) {
+        if (ref.read(appSettingsProvider)!.isTest && !hasEnrolled(user, course)){
+          await _comfirmEnrollment(context, user, course, ref);
+          return;
+        }
+        else{
           if (hasEnrolled(user, course)) {
-            NextScreen.popup(context, CurriculamScreen(course: course));
-          } else {
-            await _comfirmEnrollment(context, user, course, ref);
-          }
+          NextScreen.popup(context, CurriculamScreen(course: course));
         } else {
-
-            NextScreen.openBottomSheet(context, BuyCourseScreen(course: course,), isDismissable: true);
-
+          NextScreen.openBottomSheet(context, BuyCourseScreen(course: course,), isDismissable: true);
+        }
         }
       }
     } else {

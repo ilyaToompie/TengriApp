@@ -39,7 +39,7 @@ class Learnings extends StatelessWidget {
                         contentPadding: const EdgeInsets.all(0),
                         horizontalTitleGap: 10,
                         title: Text(e),
-                        leading: const Icon(FeatherIcons.check, color: Colors.blue),
+                        leading: Icon(FeatherIcons.check, color: Theme.of(context).colorScheme.primary),
                       ))
                   .toList(),
             )

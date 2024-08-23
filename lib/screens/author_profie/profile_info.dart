@@ -28,9 +28,9 @@ class AuthorProfileInfo extends StatelessWidget {
             radius: 100,
             iconSize: 60,
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Text(
-            user.id,
+            user.name,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600, color: Colors.white),
           ),
           const SizedBox(height: 8),

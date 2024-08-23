@@ -40,7 +40,7 @@ class AuthorProfile extends ConsumerWidget {
         slivers: [
           SliverAppBar(
             backgroundColor: Theme.of(context).primaryColor,
-            title: const Text('instructor').tr(),
+            title: Text('instructor', style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white)).tr(),
             foregroundColor: Colors.white,
             pinned: true,
             floating: true,

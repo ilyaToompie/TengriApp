@@ -73,7 +73,7 @@ class AuthorCard extends StatelessWidget{
           Padding(
             padding: const EdgeInsets.only(top: 15),
             child: OutlinedButton(
-                style: OutlinedButton.styleFrom(elevation: 0, side: BorderSide(color: Theme.of(context).primaryColor)),
+                style: OutlinedButton.styleFrom(elevation: 0, side: BorderSide(color: Theme.of(context).hintColor)),
                 onPressed: () => NextScreen.iOS(context, AuthorProfile(user: user)),
                 child: Text('view-profile', style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color),).tr()),
           )

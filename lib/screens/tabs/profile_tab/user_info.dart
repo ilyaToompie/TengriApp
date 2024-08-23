@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lms_app/configs/app_assets.dart';
 import 'package:lms_app/configs/app_config.dart';
-import 'package:lms_app/iAP/iap_config.dart';
-import 'package:lms_app/iAP/iap_screen.dart';
+
 //import '../../../../iAP/iap_config.dart';
 //import '../../../../iAP/iap_screen.dart';
 import 'package:lms_app/screens/check_homework/homework_course_screen.dart';
@@ -68,18 +67,7 @@ class UserInfo extends StatelessWidget with UserMixin {
             ),
           ],
         ),
-        Consumer(
-          builder: (context, ref, child) {
-            if (IAPConfig.iAPEnabled) {
-              return InkWell(
-                child: user.subscription == null ? _noSubscriptionContainer(context) : _subscriptionContainer(context),
-                onTap: () => NextScreen.openBottomSheet(context, const IAPScreen(), isDismissable: false),
-              );
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
-        )
+        
       ],
     );
   }
